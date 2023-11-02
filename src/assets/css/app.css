@@ -1,0 +1,36 @@
+.tip_container b {
+  padding: 0px 3px;
+  border-radius: 3px;
+}
+.tip_container {
+  position: absolute;
+  border: 2px solid #000000;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 1px 5px;
+  display: none;
+  z-index: 1000;
+}
+.tip_container:after,
+.tip_container:before {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.tip_container:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-top-color: #ffffff;
+  border-width: 5px;
+  margin-left: -5px;
+}
+.tip_container:before {
+  border-color: rgba(0, 0, 0, 0);
+  border-top-color: #000000;
+  border-width: 8px;
+  margin-left: -8px;
+}
