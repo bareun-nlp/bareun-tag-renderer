@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>morephemviewer</title>
+    <script>
+      function downloadSvg() {
+        DownloadSvg("svg.viewer");
+      }
+      function downloadPng() {
+        DownloadPng("svg.viewer");
+      }
+      function inspectText() {
+        var text = document.getElementById("text").value;
+        try {
+          var json = JSON.parse(text);
+          if (!json.sentences) {
+            alert("Invalid JSON format!");
+          }
+          RenderMorphemViewer("div.app", json.sentences);
+        } catch (e) {
+          alert("JSON paring error.");
+          console.log(e);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div style="margin: 16px">
+      <textarea
+        id="text"
+        cols="30"
+        rows="10"
+        placeholder="Enter in JSON format."
+      ></textarea>
+      <button onclick="inspectText()">Convert</button>
+      <button onclick="downloadSvg()">SVG Download</button>
+      <button onclick="downloadPng()">PNG Download</button>
+    </div>
+    <div class="app"></div>
+    <script src="/dist/nlp-tag-renderer.js"></script>
+  </body>
+</html>
